@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tippy</string>
+    <string-array name="currency_choice">
+        <item>$</item>
+        <item>€</item>
+        <item>£</item>
+        <item>¥</item>
+    </string-array>
+</resources>
