@@ -27,8 +27,8 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/Tu9nMjQ' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-Video link: https://imgur.com/Tu9nMjQ
+<img src='https://imgur.com/a/fzcnwBK' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Video link: https://imgur.com/a/fzcnwBK
 
 ## Notes
 
