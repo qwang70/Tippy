@@ -4,37 +4,40 @@
 
 **Tippy** computes the tip and total amount for a bill. The app uses the base amount and tip percentage to calculate the amount owed, and it also describes the quality of service based on the tip.
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total
 
 ## Functionality 
 
 The following **required** functionality is completed:
 
-* [ ] User can enter in a bill amount (total amount to tip on)
-* [ ] User can enter a tip percentage (what % the user wants to tip).
-* [ ] The tip and total amount are updated immediately when any of the inputs changes.
-* [ ] The user sees a label or color update based on the tip amount. 
+* [X] User can enter in a bill amount (total amount to tip on)
+* [X] User can enter a tip percentage (what % the user wants to tip).
+* [X] The tip and total amount are updated immediately when any of the inputs changes.
+* [X] The user sees a label or color update based on the tip amount. 
 
 The following **extensions** are implemented:
 
-* [ ] Custom colors palette selected
-* [ ] List anything else that you did to improve the app functionality or design!
+* [X] Add color to tip description
+* [X] Add emooji to tip description
+* [X] Add the ability to split the bill across any number of people.
+* [X] Allow the user to change their currency.
+* [X] Add another screen to the app where you can see tips made in the past. (Only available for the current session)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='https://imgur.com/Tu9nMjQ' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
+- Learned to use a RecycleView to show tip history
+- Used a global variable to hold the tip history
+    - Don't want to pass by intent, because the data would be lost upon returning to the previous screen
+    
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2020 Qiwen Wang
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
