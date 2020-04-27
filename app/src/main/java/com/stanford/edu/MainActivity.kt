@@ -1,6 +1,7 @@
 package com.stanford.edu
 
 import android.animation.ArgbEvaluator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -21,6 +22,7 @@ private const val INITIAL_TIP_PERCENT = 15
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    @SuppressLint("SetTextI18n")
     fun setUpTipUI() {
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercent.text = "$INITIAL_TIP_PERCENT%"
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         })
     }
 
-    fun setUpTextEditorUI() {
+    private fun setUpTextEditorUI() {
         etBase.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 computeTipAndTotal()
@@ -64,7 +66,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         })
     }
 
-    fun setUpSpinnerUI() {
+    private fun setUpSpinnerUI() {
         spSpinner.onItemSelectedListener = this
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private fun setUpButtons() {
         btSave.setOnClickListener {
-            if (!etBase.text.isEmpty()) {
+            if (etBase.text.isNotEmpty()) {
                 tipInfoList.add(
                     TipInfo(
                         base = etBase.text.toString().toDouble(),
@@ -112,13 +114,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     private fun updateTipDescription(tipPercent: Int) {
-        val tipDescription: String
-        when (tipPercent) {
-            in 0..9 -> tipDescription = "Poor\t\uD83D\uDC4E"
-            in 10..14 -> tipDescription = "Acceptable\t\uD83D\uDC4C"
-            in 15..19 -> tipDescription = "Good\t\uD83D\uDC4C"
-            in 20..24 -> tipDescription = "Great\t\uD83D\uDC4D"
-            else -> tipDescription = "Amazing\t\uD83D\uDC4D"
+        val tipDescription: String = when (tipPercent) {
+            in 0..9 -> "Poor\t\uD83D\uDC4E"
+            in 10..14 -> "Acceptable\t\uD83D\uDC4C"
+            in 15..19 -> "Good\t\uD83D\uDC4C"
+            in 20..24 -> "Great\t\uD83D\uDC4D"
+            else -> "Amazing\t\uD83D\uDC4D"
         }
         tvTipDescription.text = tipDescription
         val color = ArgbEvaluator().evaluate(
@@ -136,9 +137,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val baseAmount = etBase.text.toString().toDouble()
         val tipPercent = seekBarTip.progress
         val tipAmount = baseAmount * tipPercent / 100
-        val totalAmount = baseAmount + tipAmount
-        return totalAmount
+        return baseAmount + tipAmount
     }
+
+    @SuppressLint("SetTextI18n")
     private fun computeTipAndTotal() {
         // Get the value of the base and tip percent
         if (etBase.text.isEmpty()) {
